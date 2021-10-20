@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Adam Fortier" />
+  <title>CP630 Project Proposal   Tool Wear Prediction</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="mvp.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">CP630 Project Proposal <br> Tool Wear Prediction</h1>
+<p class="author">Adam Fortier</p>
+<p class="date">Nov 28, 2020</p>
+</header>
+<p><link rel="stylesheet" type="text/css" media="all" href="proposal.css" /></p>
+<h2 id="introduction">Introduction</h2>
+<p>For CNC milling machines, tool wear can have a significant effect on the quality of product being produced. A typical milling machine will move along 3-axes, with a fourth axis, the spindle, that controls the speed of the tool. The tool is the wearable component that cuts the material. A tool is given a rating by the tool manufacturer based on the time spent running at the rated speed. This value is used by the CNC controller to evaluate if the tool is usable. This is a simple approach to evaluating tool life, but it does not take into account any other factors that can affect tool life.</p>
+<p>The purpose of this project is to use data collected from a CNC machine to develop a model that can predict if a tool is worn based on the current running parameters of the machine. These paramters include, but are not limited to, spindle temperature, spindle speed, power outpur, axis speed and axis position. The prediction will be displayed to the tooling technician so that they can prepare for replacement of work tools. The dataset source is publicly available via the Kaggle website and was populated by the University of Michigan Smart Lab. Weka API will be used to impletment the machine learning algorithms</p>
+<p>I am currently implementing a tool management system at my place of employment, with the goal of distinguishing between worn and unworn tools. We currently have no way of telling how long a tool is used and rely on visual inspection. To be on the safe side, tools are frequently disposed of before they reach a worn state. This leads to significant expenses on new tools that could be avoided.</p>
+<h2 id="problem-solving-and-algorithms">Problem solving and algorithms</h2>
+<p>The dataset is the coolected from 18 experiments conducted on a CNC milling maching, with varying tool conditions, speeds and clamping pressure. All experiments used the same wax block and cutting the same pattern. The input features are material, feed rate(spindle speed) and clamping pressure. The outputs collected are the tool condition (worn/unworn), machining completed and whether or not the tool was worn after completion. This output data is good for classification machine learning alogorithms. The dataset contains data collected every 100ms and includes all measurable features of the operation. This includes power, speed, acceleration and positioning feedback. Since time series data is being collected, an additional output could be calculated which is the time remaining before failure. The WEKA library will be used to build models using logistic regression, support vector machine, k-nearest neighbour and decision tree methods.</p>
+<h2 id="proposed-system-design">Proposed System Design</h2>
+<h3 id="system-components">System components</h3>
+<ul class="incremental">
+<li>Login page.</li>
+<li>Admin user login. Allows admin to compare the performance of 2-3 machine learning algorithms.</li>
+<li>Admin user login. Selects best performed algorithm, builds the model, and saves the model into database.</li>
+<li>Regular user login. User selects a specific tool or all tools to display predictions</li>
+<li>About Us page.</li>
+</ul>
+<h3 id="preliminary-technical-tools">Preliminary technical tools</h3>
+<p>The project will be developed based on the EC components from the labs and assignments of the course, and use the following basic tools.</p>
+<ul class="incremental">
+<li>Eclipse</li>
+<li>MySql</li>
+<li>Java EE</li>
+<li>Weka API</li>
+<li>Wildfly</li>
+<li>Spring</li>
+<li>Docker</li>
+</ul>
+<h2 id="project-plan-and-schedule">Project plan and schedule</h2>
+<p>The following is the proposed plan for implementation:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Task ID</th>
+<th style="text-align: center;">Description</th>
+<th style="text-align: right;">Due Date</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: center;">Project Proposal</td>
+<td style="text-align: right;">Day 6 of week 11</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: center;">Problem solving and dataset</td>
+<td style="text-align: right;">Day 6 of week 11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: center;">Algorithms and model generation</td>
+<td style="text-align: right;">Day 6 of week 12</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: center;">Admin component development</td>
+<td style="text-align: right;">Day 6 of week 13</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4</td>
+<td style="text-align: center;">User component development</td>
+<td style="text-align: right;">Day 6 of week 14 |</td>
+</tr>
+</tbody>
+</table>
+<h2 id="references">References</h2>
+<ol class="incremental" type="1">
+<li>Data source: https://www.kaggle.com/saeedsh91/cnc-tool-wear</li>
+<li>Weka 3: Machine Learning Software in Java. https://www.cs.waikato.ac.nz/ml/weka/</li>
+</ol>
+</body>
+</html>

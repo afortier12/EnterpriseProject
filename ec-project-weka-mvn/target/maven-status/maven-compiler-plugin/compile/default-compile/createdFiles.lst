@@ -1,0 +1,7 @@
+ec\project\data\DataLoad.class
+ec\project\data\DataSaveDB.class
+ec\project\data\DataSplit.class
+ec\project\weka\InstanceQueryAdapter.class
+ec\project\data\DataProcess.class
+ec\project\weka\InstanceQuery.class
+ec\project\model\Model.class

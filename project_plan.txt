@@ -1,0 +1,45 @@
+Users
+
+
+administrator 	
+		#- add users
+		#- add users to groups
+				
+		#should check if table exists, if not create default groups and admin users
+		
+		need maven program to create admin user and user table		
+		- select classifier
+		- select data for model 
+		- generate model
+		- evaluate model and display results
+		- save model
+				
+
+users	- select prediction type
+		- select historical (load csv, get model from db and predict)
+		- select real time 
+			- simulation: load csv write to database;  
+			- divide groups into 1 group per seccond for 60 sec total cycle)
+			- load one group per second
+			- run prediction; stop if predict worn; display stage and remaining machine time
+				
+				
+				
+				
+Stateless 	load object from db
+			getters for object
+**request - response
+webservice
+independent server side operation for clients
+
+			
+Singleton	create object	
+			add data
+			perform calculations
+			save object to db
+
+Stateful	call singleton setters/functions
+ **stores data
+ maintain state between server and client
+			
+			

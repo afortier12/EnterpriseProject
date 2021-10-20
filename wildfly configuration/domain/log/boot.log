@@ -1,0 +1,31 @@
+2020-12-12 20:47:11,829 INFO  [org.jboss.modules] (main) JBoss Modules version 1.9.1.Final
+2020-12-12 20:47:12,982 INFO  [org.jboss.msc] (main) JBoss MSC version 1.4.11.Final
+2020-12-12 20:47:13,004 INFO  [org.jboss.threads] (main) JBoss Threads version 2.3.3.Final
+2020-12-12 20:47:13,222 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0049: WildFly Full 18.0.1.Final (WildFly Core 10.0.3.Final) starting
+2020-12-12 20:47:15,405 ERROR [org.jboss.as.controller] (Controller Boot Thread) 
+
+OPVDX001: Validation error in domain.xml ---------------------------------------
+|
+|  1: <?xml version='1.0' encoding='UTF-8'?>
+|  2: 
+|  3: <domain xmlns="urn:jboss:domain:10.0">
+|     ^^^^ Unexpected element '{urn:jboss:domain:10.0}domain'
+|
+|  4:     <extensions>
+|  5:         <extension module="org.jboss.as.clustering.infinispan"/>
+|  6:         <extension module="org.jboss.as.clustering.jgroups"/>
+|
+| The primary underlying error message was:
+| > ParseError at [row,col]:[3,1]
+| > Message: Unexpected element '{urn:jboss:domain:10.0}domain'
+|
+|-------------------------------------------------------------------------------
+
+2020-12-12 20:47:15,412 ERROR [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0055: Caught exception during boot: org.jboss.as.controller.persistence.ConfigurationPersistenceException: WFLYCTL0085: Failed to parse configuration
+	at org.jboss.as.controller.persistence.XmlConfigurationPersister.load(XmlConfigurationPersister.java:143)
+	at org.jboss.as.server.ServerService.boot(ServerService.java:385)
+	at org.jboss.as.controller.AbstractControllerService$1.run(AbstractControllerService.java:374)
+	at java.lang.Thread.run(Thread.java:748)
+
+2020-12-12 20:47:15,416 FATAL [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0056: Server boot has failed in an unrecoverable manner; exiting. See previous messages for details.
+2020-12-12 20:47:15,445 INFO  [org.jboss.as] (MSC service thread 1-5) WFLYSRV0050: WildFly Full 18.0.1.Final (WildFly Core 10.0.3.Final) stopped in 12ms

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Tool Monitoring Administration</title>
+<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+      integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" 
+      crossorigin="anonymous">
+<style>
+    main { margin:5em }
+</style>
+</head>
+<body>
+
+<div class="pure-menu pure-menu-horizontal">
+ <a href="#" class="pure-menu-heading pure-menu-link">Setup</a>
+    <ul class="pure-menu-list">
+        <li class="pure-menu-item">
+            <a href="#" class="pure-menu-link">Administration</a>
+        </li>
+        <li class="pure-menu-item">
+            <a href="#" class="pure-menu-link">Logout</a>
+        </li> 
+    </ul>
+    <div  style="float:right; margin:0.5em"> Welcome <%=session.getAttribute("userid")%></div>
+</div>
+</body>
+</html>
+			

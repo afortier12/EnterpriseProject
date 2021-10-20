@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Tool Monitoring Administration</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">  
+<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+      integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" 
+      crossorigin="anonymous">
+<style>
+	form {
+	  margin-top: 10px;
+	  margin-left: 10px;
+	}  
+	h1 {
+	  margin-top: 10px;
+	  margin-left: 10px;
+	}  
+	
+</style>
+</head>
+<body>
+
+<h1>Tool Monitoring - Setup</h1>
+<form class="pure-form pure-form-stacked m-lg" method="get" action="SetupDB"
+      enctype="multipart/form-data">
+    <fieldset>
+        <legend class="indent-sm">Database</legend>
+        <br/>
+        <div class="pure-g indent-sm">
+    		<div class="pure-u-1-2">Create Tables</div>
+	        <div class="pure-u-1-2"><button type="submit" class="pure-button pure-button-primary">Select</button></div>
+    	</div>
+    	</br>
+       	
+    </fieldset> 
+</form>
+
+<form class="pure-form " method="post" action="DataImport"
+      enctype="multipart/form-data">
+    
+    <fieldset>
+    <legend>Data Import</legend>
+    	</br>
+    	<div class="pure-g indent-sm">
+    	<div class="pure-u-1-4">
+	    	<label for="myfile">Import Files:</label>
+	    </div>
+		<div class="pure-u-1-2">
+			<input  type="file" name="myfile" id="myfile" multiple>
+		</div>
+		<div class="pure-u-1-4">
+        	<button type="submit" class="pure-button pure-button-primary">Upload</button>
+        </div>
+      	</div>
+    </fieldset>
+
+</form>
+
+
+</body>
+</html>

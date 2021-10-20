@@ -1,0 +1,14 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="model-bean" class="ec.project.bean.Model">
+		<property name="name" value="EC project" />
+	</bean>
+	
+	<bean id="data-bean" class="ec.project.bean.Data">
+		<property name="name" value="EC project data" />
+	</bean>
+
+</beans>

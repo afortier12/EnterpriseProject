@@ -1,0 +1,66 @@
+<p>CP-630 Final Project Report</p>
+<p>Author: Adam Fortier Date: Dec 22, 2020</p>
+<h1 id="final-project-tool-life-monitoring"><span class="header-section-number">1</span> Final Project Tool life monitoring</h1>
+<h2 id="data"><span class="header-section-number">1.1</span> Data</h2>
+<p>Dataset was obtained from https://www.kaggle.com/saeedsh91/cnc-tool-wear. The dataset is the collected from 18 experiments with a training dataset that includes the results of each experiment.</p>
+<h2 id="design"><span class="header-section-number">1.2</span> Design</h2>
+<p>The following applications were developed:</p>
+<ul class="incremental">
+<li><p>ec-project-admin-mvn: maven projeect for setting up the user table and creating a super user</p></li>
+<li><p>ec-project-setup: This purpose of this application is to setup the tables in the mysql database. It also is where the experiment and training csv files are loaded. These files are combined so that all 18 experiments are in one dataset. The results from the training data are then merged into the dataset. These in include: machining completed, tool worn and visual inspection passed. This app also includes the servlets and web pages for interacting with the beans and POJOs.</p></li>
+<li><p>ec-project: This application contains the POJOs, repositories and enterprise beans for the data, model and users.</p></li>
+<li><p>ec-project-web: This application uses servlets and JAX-RS to communicate with the beans in the ec-project application. This also includes the web pages for client interaction. Users, models and evaluations can be created here.</p></li>
+<li><p>ec-project-spring-boot: This application uses Spring Boot, providing a RestController for communicating with the ec-project-web application. The controller interacts with the Spring beans that provide a prediction based on the models created.</p></li>
+</ul>
+<h2 id="setup"><span class="header-section-number">1.3</span> Setup</h2>
+<h3 id="enterprise-application"><span class="header-section-number">1.3.1</span> Enterprise application</h3>
+<p>Copy the domain, slave-1 and slave-2 folders provided to the wildfly installation directory. Open command prompt and run domain.bat found in the bin folder of the wildfly installation directory.</p>
+<p><img src=".\images\setup_domain_start.png" /></p>
+<p><img src=".\images\setup_add_deployment.png" /></p>
+<p><img src=".\images\setup_domain_servers.png" /></p>
+<h3 id="spring-boot-application"><span class="header-section-number">1.3.2</span> Spring boot application</h3>
+<p>Open a command prompt and select the directory of the supplied jar file. Type java -jar target/ec-project-spring-boot.jar to run the file</p>
+<p><img src=".\images\spring.png" /></p>
+<h3 id="mysql"><span class="header-section-number">1.3.3</span> MySQL</h3>
+<p>Open a command prompt and select mysql installation bin directory. Type mysqld –console to start mysql</p>
+<p><img src=".\images\mysql.png" /></p>
+<h2 id="application-usage"><span class="header-section-number">1.4</span> Application Usage</h2>
+<h3 id="create-user-table-and-super-user"><span class="header-section-number">1.4.1</span> Create user table and super user</h3>
+<p>Open a command prompt and select the directory of the supplied jar file. Type java -jar target/ec-projectadmin-mvn.jar to run the file</p>
+<p><img src=".\images\admin.png" /></p>
+<p><img src=".\images\admin_table.png" /></p>
+<h3 id="create-tables-and-import-csv-data"><span class="header-section-number">1.4.2</span> create tables and import csv data</h3>
+<p>Enter http://localhost:8080/ejb-project-web/ in the browser. Login using super user account: username-super, password-cp630super</p>
+<p><img src=".\images\login.png" /></p>
+<p>Press SETUP in top left corner</p>
+<p><img src=".\images\index.png" /></p>
+<p>Press Select next to ‘create tables’ to add the new tables to the database</p>
+<p><img src=".\images\new_tables.png" /></p>
+<p>Upload the 19 csv files and press Upload</p>
+<p><img src=".\images\data_import.png" /></p>
+<p>Enter http://localhost:8080/ejb-project-web/ in the browser to return to the index.</p>
+<h3 id="create-models-evaluate-models-and-add-users"><span class="header-section-number">1.4.3</span> create models, evaluate models and add users</h3>
+<p><img src=".\images\data_import.png" /></p>
+<p>Press select beside create model. Select model from dropdown and press Select.</p>
+<p><img src=".\images\create_model.png" /></p>
+<p>Status of model creation is shown on the screen</p>
+<p><img src=".\images\create_status.png" /></p>
+<p>Tool model is saved to database</p>
+<p><img src=".\images\create_db1.png" /></p>
+<p>Tool training data is saved to the database</p>
+<p><img src=".\images\create_db2.png" /></p>
+<p>Press select beside evaluate model. Select model from dropdown and press Select.</p>
+<p><img src=".\images\eval_model.png" /></p>
+<p>Results are displayed on completion</p>
+<p><img src=".\images\eval_results.png" /></p>
+<p>Press select beside users</p>
+<p><img src=".\images\users.png" /></p>
+<p>Click add user</p>
+<p><img src=".\images\user_add.png" /></p>
+<p>Enter username and password and role (1 for admin, 2 for operator)</p>
+<p><img src=".\images\user_add_success.png" /></p>
+<h2 id="operator-screen"><span class="header-section-number">1.5</span> Operator screen</h2>
+<p>Logout and enter operator credentials</p>
+<p><img src=".\images\operator.png" /></p>
+<p>Choose a machine and press select. A new page will display a simulation of realtime tool life management. Datasets are imported in batches to detect a tool worn</p>
+<p><img src=".\images\realtime.png" /></p>

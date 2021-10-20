@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Class-Path: weka.jar, 
+Dependencies: com.weka, org.apache.commons.io, org.apache.commons.fileupload

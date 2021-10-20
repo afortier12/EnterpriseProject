@@ -1,0 +1,5 @@
+2020-12-22 18:41:14,796 INFO  [org.jboss.modules] (main) JBoss Modules version 1.9.1.Final
+2020-12-22 18:41:15,208 INFO  [org.jboss.threads] (main) JBoss Threads version 2.3.3.Final
+2020-12-22 18:41:15,603 INFO  [org.jboss.as.process.Host Controller.status] (main) WFLYPC0018: Starting process 'Host Controller'
+2020-12-22 18:41:23,755 INFO  [org.jboss.as.process.Server:server-one.status] (ProcessController-threads - 3) WFLYPC0018: Starting process 'Server:server-one'
+2020-12-22 18:41:29,012 INFO  [org.jboss.as.process.Server:server-two.status] (ProcessController-threads - 3) WFLYPC0018: Starting process 'Server:server-two'

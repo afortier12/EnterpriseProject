@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Built-By: afort
+Class-Path: lib/mysql-connector-java-8.0.21.jar lib/protobuf-java-3.11
+ .4.jar lib/h2-1.4.200.jar
+Build-Jdk: 1.8.0_191
+Created-By: Maven Integration for Eclipse
+Main-Class: com.project.admin.mvn.Admin
+

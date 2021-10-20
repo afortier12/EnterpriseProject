@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<script src="https://unpkg.com/react@16/umd/react.production.min.js"
+	type="text/javascript"></script>
+<script
+	src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"
+	type="text/javascript"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"
+	type="text/javascript"></script>
+<body>
+	<h1>Data Import in Progress...</h1>
+	<div id="update"></div>
+	<script type="text/babel">
+		class App extends React.Component {
+			constructor(){
+				super();
+				this.state= {endpoint:"ws://localhost:8080/ec-project-setup/websocket", messages:["Please wait until saved"]}
+			}
+			componentDidMount(){
+				const ws = new WebSocket(this.state.endpoint);
+				ws.onmessage = evt =>{
+					this.setState({
+						endpoint:"ws://localhost:8080/ec-project-setup/websocket", messages:[...this.state.messages, evt.data]
+					});
+					console.log(evt.data);
+				}
+			}
+
+			render() {
+				return (
+					<ul>
+						{this.state.messages.map((item) => (
+                    		<li key={item}>{item}</li>
+                		))}
+            		</ul>
+				);
+			}
+		}
+		ReactDOM.render(<App />, document.getElementById('update'))
+
+
+	</script>
+</body>
+</html>
